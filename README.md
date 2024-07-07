@@ -1,9 +1,9 @@
-JS Webpack Bootstrap
-====================
+JS Webpack Boilerplate
+======================
 
 Boilerplate configuration and repository structure for a Web Frontend JS project using Webpack.
 
-I will try to keep this up to date with the latest dependency versions.
+I've attempted to break down the commit history into logical and understandable chunks.
 
 ## Basic setup:
 
@@ -15,30 +15,32 @@ I will try to keep this up to date with the latest dependency versions.
 	* `npm install react react-dom`
 * Jest for testing:
 	* `npm install --save-dev jest`
-* Add commands for building, cleaning, testing, running, **(TODO)** linting and bundle analysis
+* Add commands for building, cleaning, testing, running, **(TODO)** linting, and bundle analysis.
 
 ## Inclusions:
 
 * Webpack
-	* webpack-cli
-	* webpack-dev-server (for local execution)
-	* html-webpack-plugin (for automatic HTML generation, but no template)
-	* favicons-webpack-plugin (for automatic Favicon generation, plus a default favicon)
-	* \[Built-in\] HotModuleReplacementPlugin (for hot-swapping locally running code)
+	* `webpack-cli`
+	* `webpack-dev-server` (for local execution)
+	* `html-webpack-plugin` (for automatic HTML generation, but no template)
+	* `favicons-webpack-plugin` (for automatic Favicon generation, plus a default favicon)
+	* \[Built-in\] `HotModuleReplacementPlugin` (for hot-swapping locally running code)
+	* `webpack-bundle-analyzer` (for bundle analysis)
+	* Webpack-recommended source maps configuration
 * React (and ReactDOM)
 * Babel
-	* @babel/preset-env (for transpiling ES2015+)
-	* @babel/preset-react (for transipiling JSX)
-* Webpack-recommended source maps
-* Bundle Analysis
+	* `@babel/preset-env` (for transpiling ES2015+)
+	* `@babel/preset-react` (for transipiling JSX)
+* Jest
+	* `babel.config.js` (just for Jest)
+	* `jest.config.js` (with basic resource mocking)
 
 ## Exclusions:
 
 * Yarn
 * TypeScript support
-* Flow (prefer TypeScript)
 * React extras (react-intl, react-router, etc)
-* Styling libraries (SCSS, styled-components, etc)
+* Styling libraries (SCSS, Less, styled-components, etc)
 * State management (Redux, ModX, etc)
 
 ## Webpack Configuration Notes
