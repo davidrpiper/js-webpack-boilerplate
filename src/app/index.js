@@ -8,3 +8,7 @@ export default Image = () => (
     <img src={sampleImage} width='256' height='256' />
   </>
 );
+
+export const sum = (a, b) => {
+  return a + b;
+};

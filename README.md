@@ -9,9 +9,13 @@ I will try to keep this up to date with the latest dependency versions.
 
 * (`npm cache clean --force`)
 * `npm init`
-* `npm install --save-dev webpack webpack-cli webpack-dev-server html-webpack-plugin favicons favicons-webpack-plugin babel-loader @babel/core @babel/cli @babel/preset-env @babel/preset-react css-loader style-loader webpack-bundle-analyzer`
-* `npm install react react-dom`
-* Add commands for building, cleaning, **(TODO)** testing, running, **(TODO)** linting and bundle analysis
+* Webpack, Plugins and Loaders:
+	* `npm install --save-dev webpack webpack-cli webpack-dev-server html-webpack-plugin favicons favicons-webpack-plugin babel-loader @babel/core @babel/cli @babel/preset-env @babel/preset-react css-loader style-loader webpack-bundle-analyzer`
+* React:
+	* `npm install react react-dom`
+* Jest for testing:
+	* `npm install --save-dev jest`
+* Add commands for building, cleaning, testing, running, **(TODO)** linting and bundle analysis
 
 ## Inclusions:
 
