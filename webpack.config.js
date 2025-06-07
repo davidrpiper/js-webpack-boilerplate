@@ -1,19 +1,24 @@
-const path = require('path');
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 // To access built-in plugins
-const webpack = require('webpack'); 
+import webpack from 'webpack';
 
 // Generates index.html automatically
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 // Generates favicons automatically
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
+
+// Get __dirname equivalent for ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Source and Build directories
 const BUILD_DIR = path.resolve(__dirname, 'dist');
 const SRC_DIR = path.resolve(__dirname, 'src');
 
-module.exports = (env, argv) => {
+export default (env, argv) => {
     const isDevelopmentMode = argv.mode === 'development';
 
     return {
