@@ -8,7 +8,7 @@ const SampleApp = () => (
     </>
 );
 
-export const sum = (a, b) => {
+export const sum = (a: number, b: number): number => {
     return a + b;
 };
 

@@ -22,7 +22,7 @@ export default (env, argv) => {
     const isDevelopmentMode = argv.mode === 'development';
 
     return {
-        entry: SRC_DIR + '/index.js',
+        entry: SRC_DIR + '/index.tsx',
         output: {
             path: BUILD_DIR,
             filename: 'bundle.js',
@@ -31,6 +31,12 @@ export default (env, argv) => {
         },
         module: {
             rules: [
+                {
+                    test: /\.tsx?$/,
+                    include: SRC_DIR,
+                    use: 'ts-loader',
+                    exclude: /node_modules/
+                },
                 {
                     test: /\.js$/,
                     include: SRC_DIR,
@@ -62,6 +68,7 @@ export default (env, argv) => {
             ],
         },
         resolve: {
+            extensions: ['.tsx', '.ts', '.js', '.jsx'],
             modules: [path.join(__dirname, 'src'), 'node_modules']
         },
         plugins: [

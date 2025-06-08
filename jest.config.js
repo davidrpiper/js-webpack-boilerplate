@@ -1,4 +1,6 @@
-module.exports = {
+export default {
+    preset: 'ts-jest',
+    testEnvironment: 'jsdom',
     /*
      * https://stackoverflow.com/a/54513338/1618592
      * Mock out resource files (which Jest will attempt to parse as JS) with this file.
@@ -10,5 +12,20 @@ module.exports = {
     moduleNameMapper: {
         "\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/jest.config.js",
         "\\.(css|less)$": "<rootDir>/jest.config.js"
+    },
+    testMatch: [
+        "**/__tests__/**/*.(ts|tsx|js)",
+        "**/*.(test|spec).(ts|tsx|js)"
+    ],
+    transform: {
+        "^.+\\.(ts|tsx)$": "ts-jest",
+        "^.+\\.(js|jsx)$": "babel-jest"
+    },
+    moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
+    extensionsToTreatAsEsm: ['.ts', '.tsx'],
+    globals: {
+        'ts-jest': {
+            useESM: true
+        }
     }
-}
+};
