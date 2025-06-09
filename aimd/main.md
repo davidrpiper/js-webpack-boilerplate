@@ -31,7 +31,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Architecture
 
-This is a React + Webpack + TypeScript boilerplate project with the following structure:
+This is a React + Webpack + TypeScript + MobX boilerplate project with the following structure:
 
 - **Entry Point**: `src/index.tsx` - Creates root div and renders the main React app
 - **Main Component**: `src/app/index.tsx` - Contains the main SampleApp component
@@ -40,7 +40,7 @@ This is a React + Webpack + TypeScript boilerplate project with the following st
 
 ### Key Configuration Files
 - `webpack.config.js` - Main build configuration with development/production modes and TypeScript support
-- `tsconfig.json` - TypeScript compiler configuration
+- `tsconfig.json` - TypeScript compiler configuration with MobX decorators support
 - `babel.config.js` - Babel configuration for Jest only (Webpack uses ts-loader for TypeScript)
 - `jest.config.js` - Test configuration with resource mocking and TypeScript support
 - `eslint.config.js` - ESLint configuration with TypeScript and React support
@@ -49,6 +49,12 @@ This is a React + Webpack + TypeScript boilerplate project with the following st
 - Uses React 18 with createRoot
 - JSX transform configured with `{ runtime: 'automatic' }` - no need to import React in JSX files
 - Hot Module Replacement enabled in development mode
+
+### State Management
+- MobX 6 for reactive state management
+- mobx-react for full React integration (class and functional components)
+- TypeScript decorators enabled for cleaner syntax
+- Observable pattern for reactive components
 
 ### Asset Handling
 - Images, fonts, and other assets handled via Webpack asset modules

@@ -48,6 +48,8 @@ I've attempted to break down the commit history into logical and understandable 
 	* `npm install --save-dev jest ts-jest jest-environment-jsdom`
 * Linting and Formatting:
 	* `npm install --save-dev eslint @eslint/js @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react eslint-plugin-react-hooks prettier eslint-plugin-prettier eslint-config-prettier`
+* State Management:
+	* `npm install mobx mobx-react`
 
 ## Inclusions:
 
@@ -86,13 +88,18 @@ I've attempted to break down the commit history into logical and understandable 
 	* Format on save capability
 * CSS Support
 	* `css-loader` and `style-loader` for importing CSS files
+* State Management
+	* MobX 6 with full React bindings (mobx-react)
+	* TypeScript decorators support configured
+	* Observable state management pattern
+	* Support for both class and functional components
 
 ## Exclusions:
 
 * Yarn
 * React extras (react-intl, react-router, etc)
 * Styling libraries (SCSS, Less, styled-components, etc)
-* State management (Redux, MobX, etc)
+* Other state management solutions (Redux, Zustand, etc)
 * Testing libraries beyond Jest (React Testing Library, Enzyme, etc)
 
 ## Configuration Notes
@@ -112,6 +119,8 @@ I've attempted to break down the commit history into logical and understandable 
 * Module resolution set to Node
 * ES modules as output format
 * Type definitions in `src/types/` for custom declarations
+* Experimental decorators enabled for MobX
+* useDefineForClassFields for proper MobX compatibility
 
 ### Project Structure
 * Entry point: `src/index.tsx`

@@ -1,7 +1,7 @@
 {
     "name": "react-typescript-webpack-boilerplate",
     "version": "0.1.0",
-    "description": "Boilerplate configuration and repository structure for a Web Frontend JS project using Webpack",
+    "description": "Modern React + TypeScript boilerplate with Webpack, MobX, ESLint, Prettier, and Jest",
     "author": "David Piper",
     "license": "UNLICENSED",
     "main": "index.js",
@@ -63,6 +63,8 @@
         "webpack-dev-server": "^5.0.4"
     },
     "dependencies": {
+        "mobx": "^6.13.7",
+        "mobx-react": "^9.2.0",
         "react": "^18.3.1",
         "react-dom": "^18.3.1"
     }
