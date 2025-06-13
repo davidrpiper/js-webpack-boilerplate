@@ -64,6 +64,10 @@ export default (env, argv) => {
                 {
                 	test: /\.(html|txt)$/,
                 	type: 'asset/resource'
+                },
+                {
+                	test: /\.(mp3|wav|ogg)$/,
+                	type: 'asset/resource'
                 }
             ],
         },

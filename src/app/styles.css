@@ -33,9 +33,9 @@ h1 {
   margin-bottom: 1.5rem;
 }
 
-.config-section label {
+.config-section > label {
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   font-weight: 600;
   color: #555;
 }
@@ -48,11 +48,12 @@ h1 {
 
 .color-option {
   width: 40px;
-  height: 40px;
-  border: 2px solid #333;
-  border-radius: 4px;
+  height: 46px;
+  position: relative;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: transform 0.2s;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  border: none;
 }
 
 .color-option:hover {
@@ -60,8 +61,8 @@ h1 {
 }
 
 .color-option.selected {
-  border-width: 4px;
-  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #333;
+  box-shadow: 0 0 0 4px #333;
+  transform: scale(1.15);
 }
 
 .radio-group {
@@ -93,7 +94,7 @@ h1 {
 }
 
 .roll-button {
-  margin-top: auto;
+  margin-top: 2rem;
   padding: 1rem 2rem;
   font-size: 1.5rem;
   font-weight: bold;
@@ -134,21 +135,19 @@ h1 {
   transform: scale(1.1);
 }
 
-.die-triangle {
-  width: 0;
-  height: 0;
-  border-left: 100px solid transparent;
-  border-right: 100px solid transparent;
-  border-bottom: 173px solid white;
+.die-hexagon {
+  width: 200px;
+  height: 230px;
   position: relative;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background-color: white;
   filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .die-number {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   font-size: 3rem;
   font-weight: bold;
   color: black;

@@ -1,4 +1,5 @@
 import { makeAutoObservable } from 'mobx';
+import diceRollSound from '../assets/dice-roll-sound.mp3';
 
 export type DiceColor =
     | 'white'
@@ -11,7 +12,8 @@ export type DiceColor =
 export type RollMode = 'straight' | 'advantage' | 'disadvantage';
 
 class D20Store {
-    diceColor: DiceColor = 'white';
+    die1Color: DiceColor = 'white';
+    die2Color: DiceColor = 'white';
     rollMode: RollMode = 'straight';
     soundEnabled: boolean = false;
     isRolling: boolean = false;
@@ -23,11 +25,21 @@ class D20Store {
         makeAutoObservable(this);
     }
 
-    setDiceColor(color: DiceColor) {
-        this.diceColor = color;
+    get diceColor(): DiceColor {
+        // For backward compatibility
+        return this.die1Color;
+    }
+
+    setDie1Color(color: DiceColor) {
+        this.die1Color = color;
+    }
+
+    setDie2Color(color: DiceColor) {
+        this.die2Color = color;
     }
 
     setRollMode(mode: RollMode) {
+        const previousMode = this.rollMode;
         this.rollMode = mode;
         this.winnerIndex = null;
         // Reset dice values based on mode
@@ -37,6 +49,10 @@ class D20Store {
         } else {
             this.diceValues = [10, 10];
             this.finalValues = [10, 10];
+            // Only set die2Color to match die1Color when switching FROM straight mode
+            if (previousMode === 'straight') {
+                this.die2Color = this.die1Color;
+            }
         }
     }
 
@@ -70,8 +86,8 @@ class D20Store {
 
         // Start animation
         const startTime = Date.now();
-        const animationDuration = 5000; // 5 seconds
-        const updateInterval = 100; // 10 times per second
+        const animationDuration = 2000; // 2 seconds
+        const updateInterval = 50; // 20 times per second
 
         const intervalId = window.setInterval(() => {
             const elapsed = Date.now() - startTime;
@@ -106,9 +122,14 @@ class D20Store {
     }
 
     playSound(type: 'roll' | 'complete') {
-        // Stub function for sound implementation
-        console.log(`[Sound] Would play ${type} sound`);
-        // TODO: Implement actual sound playback
+        if (!this.soundEnabled) return;
+
+        if (type === 'roll') {
+            const audio = new window.Audio(diceRollSound);
+            audio.play().catch((error) => {
+                console.error('Failed to play sound:', error);
+            });
+        }
     }
 }
 

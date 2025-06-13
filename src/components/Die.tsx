@@ -17,21 +17,19 @@ interface DieProps {
     index: number;
 }
 
-export const Die = observer(({ value, isWinner }: DieProps) => {
+export const Die = observer(({ value, isWinner, index }: DieProps) => {
     const store = d20Store;
-    const color = COLOR_VALUES[store.diceColor];
+    const color = COLOR_VALUES[index === 0 ? store.die1Color : store.die2Color];
 
     return (
         <div className={`die ${isWinner ? 'winner' : ''}`}>
             <div
-                className="die-triangle"
+                className="die-hexagon"
                 style={{
-                    borderBottomColor: color,
+                    backgroundColor: color,
                 }}
             >
-                <div className="die-number" style={{ top: '120px' }}>
-                    {value}
-                </div>
+                <div className="die-number">{value}</div>
             </div>
         </div>
     );

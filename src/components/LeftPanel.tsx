@@ -29,18 +29,38 @@ export const LeftPanel = observer(() => {
             <h1>D20 Simulator!</h1>
 
             <div className="config-section">
-                <label>Dice Color</label>
+                <label>
+                    {store.rollMode === 'straight'
+                        ? 'Die Color'
+                        : 'Die 1 Color'}
+                </label>
                 <div className="color-picker">
                     {COLORS.map((color) => (
                         <div
                             key={color}
-                            className={`color-option ${store.diceColor === color ? 'selected' : ''}`}
+                            className={`color-option ${store.die1Color === color ? 'selected' : ''}`}
                             style={{ backgroundColor: COLOR_VALUES[color] }}
-                            onClick={() => store.setDiceColor(color)}
+                            onClick={() => store.setDie1Color(color)}
                         />
                     ))}
                 </div>
             </div>
+
+            {store.rollMode !== 'straight' && (
+                <div className="config-section">
+                    <label>Die 2 Color</label>
+                    <div className="color-picker">
+                        {COLORS.map((color) => (
+                            <div
+                                key={color}
+                                className={`color-option ${store.die2Color === color ? 'selected' : ''}`}
+                                style={{ backgroundColor: COLOR_VALUES[color] }}
+                                onClick={() => store.setDie2Color(color)}
+                            />
+                        ))}
+                    </div>
+                </div>
+            )}
 
             <div className="config-section">
                 <label>Roll Mode</label>
@@ -52,6 +72,7 @@ export const LeftPanel = observer(() => {
                             value="straight"
                             checked={store.rollMode === 'straight'}
                             onChange={() => store.setRollMode('straight')}
+                            disabled={store.isRolling}
                         />
                         Straight
                     </label>
@@ -62,6 +83,7 @@ export const LeftPanel = observer(() => {
                             value="advantage"
                             checked={store.rollMode === 'advantage'}
                             onChange={() => store.setRollMode('advantage')}
+                            disabled={store.isRolling}
                         />
                         Advantage
                     </label>
@@ -72,6 +94,7 @@ export const LeftPanel = observer(() => {
                             value="disadvantage"
                             checked={store.rollMode === 'disadvantage'}
                             onChange={() => store.setRollMode('disadvantage')}
+                            disabled={store.isRolling}
                         />
                         Disadvantage
                     </label>
@@ -80,14 +103,15 @@ export const LeftPanel = observer(() => {
 
             <div className="config-section">
                 <label className="checkbox-label">
+                    Sounds
                     <input
                         type="checkbox"
                         checked={store.soundEnabled}
                         onChange={(e) =>
                             store.setSoundEnabled(e.target.checked)
                         }
+                        disabled={store.isRolling}
                     />
-                    Sounds
                 </label>
             </div>
 
