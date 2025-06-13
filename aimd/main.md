@@ -16,6 +16,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ### Testing
 - `npm test` - Run Jest tests
 - `npm run test:coverage` - Run tests with coverage report
+- `npm test -- path/to/test.ts` - Run a single test file
+- `npm test -- --watch` - Run tests in watch mode
 
 ### Linting & Type Checking
 - `npm run lint` - Lint source files with ESLint (supports JS, JSX, TS, TSX)
