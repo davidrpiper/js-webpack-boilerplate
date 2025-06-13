@@ -1,15 +1,15 @@
-import sampleImage from './sample-image.svg';
+import { observer } from 'mobx-react';
+import { LeftPanel } from '../components/LeftPanel';
+import { RightPanel } from '../components/RightPanel';
+import './styles.css';
 
-// Explicit names for default exports are optional
-const SampleApp = () => (
-    <>
-        <h1>Sample App</h1>
-        <img src={sampleImage} width="256" height="256" />
-    </>
-);
+const App = observer(() => {
+    return (
+        <div className="app">
+            <LeftPanel />
+            <RightPanel />
+        </div>
+    );
+});
 
-export const sum = (a: number, b: number): number => {
-    return a + b;
-};
-
-export default SampleApp;
+export default App;
